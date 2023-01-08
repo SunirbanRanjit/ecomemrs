@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
 
+
+import  Home  from './pages/Home';
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import ViewCategory from './pages/ViewCategory';
+import Planform from './pages/Planform';
+import Login from './pages/Login';
+import Map from './pages/Map';
+import PlanDisplay from './pages/PlanDisplay';
+import RegisterUser from './pages/RegisterUser';
+import AdminUpdate from './pages/AdminUpdate';
+import AdminDashboard from './pages/AdminDashboard';
+import CoustomerDetails from './pages/CoustomerDetails';
+import LogInn from './pages/LogInn';
+import { authentication } from './firebase-config';
+
+//import PrivateRoute from './PrivateRoute';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+      <Router>
+      <Routes>
+      <Route path='/' element={ <Home/>} />
+      <Route path='/viewcategory' element={< ViewCategory  />} /> 
+      <Route path='/plan' element={ <Planform/>} />
+      <Route path='/login' element={ <Login/> } />
+      <Route path='/register' element={ <LogInn/> } /> 
+      <Route path='/map' element={ <Map/> } />
+      <Route path='/plan-display' element={ <PlanDisplay/> } />
+      <Route path='/admin-update' element={ <AdminUpdate/> }/>
+      <Route path='/admin-dashboard' element={ <AdminDashboard/>} />
+      <Route path='/user-details' element={< CoustomerDetails/>}/>
+      </Routes>
+      </Router>
+    
     </div>
   );
 }
