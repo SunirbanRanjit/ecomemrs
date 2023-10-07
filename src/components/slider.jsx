@@ -41,7 +41,7 @@ const Slider = () => {
       {slides.map((slide, index) => {
         if (index === activeSlide) {
           return (
-            <div className={`wrapper flex w-full h-full mobile:h-[200px] items-center justify-center shadow-2xl rounded-lg border-[#c0c0c0] border-10px overflow-hidden relative` + slide.background} key={index}>
+            <div className={`wrapper flex w-full h-full mobile:h-[200px] items-center justify-center shadow-2xl rounded-lg border-[#c0c0c0] border-10px overflow-hidden relative` } key={index}>
               <div className={slideStyle}>
                 <div className="flex-1 flex justify-center my-5 items-center aspect-w-16 aspect-h-9">
                 <img

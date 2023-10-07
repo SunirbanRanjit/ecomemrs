@@ -13,7 +13,7 @@ const ViewCategory = () => {
             <div className="grow text-center  text-[30px]"> {location.state[1]}  </div> 
             <div className='m-2'> <button onClick={() => navigate(-1)}><ArrowBack style={{fontSize : '30px'}}/> </button> </div>
         </div>
-        <MenuTable ></MenuTable>
+        <MenuTable item={location.state[1]} ></MenuTable>
   
     </div>
   )

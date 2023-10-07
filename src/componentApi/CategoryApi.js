@@ -9,7 +9,7 @@ import img8 from "../assets/img8.jpg";
 
 export const ApiCategories =[
     {
-        title : 'Rice',
+        title : 'Rice & Roti',
         src : img8,
     },
     {
@@ -17,12 +17,12 @@ export const ApiCategories =[
         src : img7,
     },
     {
-        title: 'Bhaja',
+        title: 'Bhaja/Fry',
         src : img6,
     },
     
     {
-        title: 'Seddho',
+        title: 'Seddho-batna',
         src : img1,
     },
     {
@@ -30,15 +30,15 @@ export const ApiCategories =[
         src : img2,
     },
     {
-        title: 'Torkari',
+        title: 'Torkari/Sabzi',
         src : img4,
     },
     {
-        title : 'Jhol',
+        title : 'Jhol/Curry',
         src : img3,
     },
     {
-        title : 'Sweet',
+        title : 'Aachar',
         src : img5,
     },
 ]

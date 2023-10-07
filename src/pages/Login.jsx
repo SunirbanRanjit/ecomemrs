@@ -4,10 +4,12 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import {  RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { authentication, newAcc } from '../firebase-config';
+import { authentication, getUserDocument, newAcc } from '../firebase-config';
 import {  signOut } from "firebase/auth";
 import { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 const Login = () => {
+    const [cookie, setCookie] = useCookies(['Anno']);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const nevigate = useNavigate();
     const onSubmit = data => {
@@ -78,7 +80,16 @@ const Login = () => {
                         signout();
                     nevigate('/register');
                     } else {
-                        nevigate('/plan');  
+                        const data = getUserDocument(user.uid);
+                        data.then(function(values){
+                            //console.log(values);
+                            const json = {name: values.name, address: values.address, uid: user.uid};
+                            setCookie('Anno', JSON.stringify(json), { path: '/' });
+                            nevigate(-1);
+                        })
+                        
+
+                          
                     }
                 })
                 

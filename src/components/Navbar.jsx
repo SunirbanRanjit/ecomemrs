@@ -9,37 +9,19 @@ import Logo from "./Logo";
 
 import { getAuth, signOut,onAuthStateChanged } from "firebase/auth";
 import { getUserDocument,authentication } from '../firebase-config';
+import Sidedrawer from "./Sidedrawer";
 const Navbar = () => {
-  const [ShowLang, setShowLang] = useState(false)
+  const [ShowLang, setShowLang] = useState(false);
   const [logState, setLogState] = useState(false);
+  const [ShowBar, setShowBar] = useState(false);
   var language = localStorage.getItem('Language');
   
-  const handleOnClose = ()=> { setShowLang(false)}
+  const handleOnClose = ()=> { setShowLang(false);  }
+  const hOnClose = () =>{setShowBar(false);}
   const style =
     'text-[14px], cursor-pointer, ml-[25px] mobile:ml-[5px]';
    
-    onAuthStateChanged(authentication, (user) => {
-      if (user) {
-        const uid = user.uid;
-        //console.log(uid);
-        getUserDocument(uid);
-        setLogState(true);
-      } else {
-        setLogState(false);
-        window.name="";
-        window.phone="0";
-        window.address="";
-        window.plan="-1";
-      }
-    });
-    const signOutUser = () => {
-    signOut(authentication).then(() => {
-      console.log("Sign-out successful.");
-      setLogState(false);
-    }).catch((error) => {
-      // An error happened.
-    });
-  }
+    
   return (
 
 
@@ -49,7 +31,7 @@ const Navbar = () => {
 
 
           <div className=" flex items-center px-2">
-          <button   onClick={signOutUser}>
+          <button   onClick={()=> setShowBar(true)}>
           <MenuOutlined  />
           </button>
           </div>
@@ -87,6 +69,7 @@ const Navbar = () => {
 
       </div>
       <Lang currentLang={language} onClose={handleOnClose} visible={ShowLang}/>
+      <Sidedrawer onClose={hOnClose} visible={ShowBar}/>
     </div>
   );
 };

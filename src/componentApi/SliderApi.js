@@ -1,7 +1,8 @@
 import vector1 from "../assets/vector1.jpg";
 import vector2 from "../assets/vector2.jpg";
 import vector3 from "../assets/vector3.jpg";
-
+import vector4 from "../assets/vector4.jpg";
+import vector5 from "../assets/vector5.jpg";
 export const ApiSlides = [
     {
       src: vector1,
@@ -28,5 +29,20 @@ export const ApiSlides = [
       },
       background: ' bg-[#c6e400]'
     },
-    
+    {
+      src: vector4,
+      content: {
+        h2: "Amazing Deals this Summer",
+        p: "Upto 40% off",
+      },
+      background: ' bg-[#c6e400]'
+    },
+    {
+      src: vector5,
+      content: {
+        h2: "Amazing Deals this Summer",
+        p: "Upto 40% off",
+      },
+      background: ' bg-[#c6e400]'
+    },
     ]
